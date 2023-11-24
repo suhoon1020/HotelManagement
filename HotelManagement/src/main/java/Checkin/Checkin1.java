@@ -4,7 +4,9 @@
  */
 package Checkin;
 
+import Reserve.Login;
 import Reserve.MScreen;
+import Reserve.SScreen;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -212,8 +214,18 @@ public class Checkin1 extends javax.swing.JFrame {
 
     private void jButtcancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtcancelActionPerformed
         // "취소" 버튼이 클릭되었을 때 실행되는 메서드입니다.
-        new MScreen().setVisible(true);
-        setVisible(false);// TODO add your handling code here:
+        Login loginInstance = Login.getInstance();
+        boolean isMS = loginInstance.getMS();
+        //System.out.println(isMS); 테스트용 코드
+
+        if (isMS == true) {
+            new SScreen().setVisible(true);
+            setVisible(false);
+        } else {
+            new MScreen().setVisible(true);
+            setVisible(false);
+        }
+        
     }//GEN-LAST:event_jButtcancelActionPerformed
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed

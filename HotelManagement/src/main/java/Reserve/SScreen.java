@@ -4,6 +4,8 @@
  */
 package Reserve;
 
+import CheckOut.Checkout0;
+import Checkin.Checkin1;
 import RoomService.roomservice;
 
 
@@ -34,6 +36,8 @@ public class SScreen extends javax.swing.JFrame {
         jButton_reserve = new javax.swing.JButton();
         jButt_RoomServ = new javax.swing.JButton();
         jButt_Res = new javax.swing.JButton();
+        jButt_CheckIn = new javax.swing.JButton();
+        jButt_CheckOut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,16 +57,34 @@ public class SScreen extends javax.swing.JFrame {
 
         jButt_Res.setText("레스토랑");
 
+        jButt_CheckIn.setText("체크인");
+        jButt_CheckIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButt_CheckInActionPerformed(evt);
+            }
+        });
+
+        jButt_CheckOut.setText("체크아웃");
+        jButt_CheckOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButt_CheckOutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButt_Res, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButt_RoomServ, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton_reserve, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jButt_CheckOut)
+                        .addComponent(jButt_CheckIn))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jButt_Res, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButt_RoomServ, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton_reserve, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(287, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -70,9 +92,13 @@ public class SScreen extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jButton_reserve)
-                .addGap(73, 73, 73)
+                .addGap(18, 18, 18)
+                .addComponent(jButt_CheckIn)
+                .addGap(26, 26, 26)
+                .addComponent(jButt_CheckOut)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(jButt_RoomServ)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addGap(38, 38, 38)
                 .addComponent(jButt_Res)
                 .addGap(38, 38, 38))
         );
@@ -91,6 +117,17 @@ public class SScreen extends javax.swing.JFrame {
         new roomservice().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jButt_RoomServActionPerformed
+
+    private void jButt_CheckInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButt_CheckInActionPerformed
+        new Checkin1().setVisible(true);
+        setVisible(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButt_CheckInActionPerformed
+
+    private void jButt_CheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButt_CheckOutActionPerformed
+        // TODO add your handling code here:
+        new Checkout0().setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jButt_CheckOutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,6 +165,8 @@ public class SScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButt_CheckIn;
+    private javax.swing.JButton jButt_CheckOut;
     private javax.swing.JButton jButt_Res;
     private javax.swing.JButton jButt_RoomServ;
     private javax.swing.JButton jButton_reserve;

@@ -1,24 +1,25 @@
+
+import Reserve.ReserveRoom;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package Reserve;
+
 
 /**
  *
  * @author 심수훈
  */
-public class DeleteRoomTest {
+public class GetRoomNumTest {
 
     /**
-     * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public void testCode(String roomNum) {
         // TODO code application logic here
-        Room room = new Room();
+        ReserveRoom rr =new ReserveRoom();
         
-        room.deleteFile("90");
-        
+        System.out.println(roomNum);
         
     }
     

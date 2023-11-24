@@ -4,7 +4,9 @@
  */
 package Reserve;
 
+import CheckOut.Checkout0;
 import Checkin.Checkin1;
+import Restaurant.Restaurant;
 import RoomService.roomservice;
 
 /**
@@ -34,8 +36,7 @@ public class MScreen extends javax.swing.JFrame {
         jButt_CheckIn = new javax.swing.JButton();
         jButt_CheckOut = new javax.swing.JButton();
         jButt_RoomService = new javax.swing.JButton();
-        jButt_Report = new javax.swing.JButton();
-        jButt_Pay = new javax.swing.JButton();
+        jButt_Restaurant = new javax.swing.JButton();
 
         jLabel2.setText("jLabel2");
 
@@ -69,9 +70,12 @@ public class MScreen extends javax.swing.JFrame {
             }
         });
 
-        jButt_Report.setText("보고서");
-
-        jButt_Pay.setText("결제");
+        jButt_Restaurant.setText("레스토랑");
+        jButt_Restaurant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButt_RestaurantActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -79,13 +83,12 @@ public class MScreen extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButt_Pay)
-                    .addComponent(jButt_Report)
-                    .addComponent(jButt_RoomService)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButt_RoomService, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButt_CheckOut)
                     .addComponent(jButt_CheckIn)
-                    .addComponent(jButt_Reserve))
+                    .addComponent(jButt_Reserve)
+                    .addComponent(jButt_Restaurant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(254, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -97,13 +100,11 @@ public class MScreen extends javax.swing.JFrame {
                 .addComponent(jButt_CheckIn)
                 .addGap(26, 26, 26)
                 .addComponent(jButt_CheckOut)
-                .addGap(18, 18, 18)
+                .addGap(33, 33, 33)
                 .addComponent(jButt_RoomService)
-                .addGap(18, 18, 18)
-                .addComponent(jButt_Report)
-                .addGap(18, 18, 18)
-                .addComponent(jButt_Pay)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(jButt_Restaurant)
+                .addGap(35, 35, 35))
         );
 
         pack();
@@ -117,6 +118,8 @@ public class MScreen extends javax.swing.JFrame {
 
     private void jButt_CheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButt_CheckOutActionPerformed
         // TODO add your handling code here:
+        new Checkout0().setVisible(true);
+        setVisible(false);
     }//GEN-LAST:event_jButt_CheckOutActionPerformed
 
     private void jButt_CheckInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButt_CheckInActionPerformed
@@ -129,6 +132,12 @@ public class MScreen extends javax.swing.JFrame {
         new roomservice().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jButt_RoomServiceActionPerformed
+
+    private void jButt_RestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButt_RestaurantActionPerformed
+        // TODO add your handling code here:
+        new Restaurant().setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jButt_RestaurantActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,9 +178,8 @@ public class MScreen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButt_CheckIn;
     private javax.swing.JButton jButt_CheckOut;
-    private javax.swing.JButton jButt_Pay;
-    private javax.swing.JButton jButt_Report;
     private javax.swing.JButton jButt_Reserve;
+    private javax.swing.JButton jButt_Restaurant;
     private javax.swing.JButton jButt_RoomService;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

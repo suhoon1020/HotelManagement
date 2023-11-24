@@ -32,13 +32,12 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButt_Pay" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButt_Report" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButt_RoomService" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jButt_RoomService" max="32767" attributes="0"/>
                   <Component id="jButt_CheckOut" min="-2" max="-2" attributes="0"/>
                   <Component id="jButt_CheckIn" min="-2" max="-2" attributes="0"/>
                   <Component id="jButt_Reserve" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButt_Restaurant" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="254" max="32767" attributes="0"/>
           </Group>
@@ -53,13 +52,11 @@
               <Component id="jButt_CheckIn" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Component id="jButt_CheckOut" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Component id="jButt_RoomService" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButt_Report" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButt_Pay" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="31" max="32767" attributes="0"/>
+              <EmptySpace pref="40" max="32767" attributes="0"/>
+              <Component id="jButt_Restaurant" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -97,15 +94,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButt_RoomServiceActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButt_Report">
+    <Component class="javax.swing.JButton" name="jButt_Restaurant">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#xbcf4;&#xace0;&#xc11c;"/>
+        <Property name="text" type="java.lang.String" value="&#xb808;&#xc2a4;&#xd1a0;&#xb791;"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButt_Pay">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="&#xacb0;&#xc81c;"/>
-      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButt_RestaurantActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
