@@ -4,6 +4,7 @@
  */
 package Reserve;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
@@ -221,61 +222,116 @@ public class BookInput extends javax.swing.JFrame {
 
         return uniqueFileName;
     }
+    
+    private String readNameFromFile(String fileName) {
+    try {
+        File file = new File(fileName);
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String line = br.readLine();
+        br.close();
+        if (line != null) {
+            return line.split("/")[0]; // 첫 번째 데이터가 name이므로 해당 값을 반환
+        }
+    } catch (IOException ex) {
+        // 예외 처리
+    }
+    return null;
+}
+
+private String readPhNumFromFile(String fileName) {
+    try {
+        File file = new File(fileName);
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String line;
+        while ((line = br.readLine()) != null) {
+            String[] data = line.split("/");
+            if (data.length >= 5) {
+                return data[4]; // 다섯 번째 데이터가 phNum이므로 해당 값을 반환
+            }
+        }
+        br.close();
+    } catch (IOException ex) {
+        // 예외 처리
+    }
+    return null;
+}
 
     
     
     private void jButton_BookOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_BookOkActionPerformed
         
-        /*
-        1. 랜덤 고유번호 생성
-        2. 텍스트 필드 값이 비어있지 않을때
-        2. 각 텍스트 필드의 값을 가져와서 파일에 저장
-        */
-        try {
-            File allFile = new File("./");
-            String[] allFileName = allFile.list();
+ /*
+    1. 랜덤 고유번호 생성
+    2. 텍스트 필드 값이 비어있지 않을때
+    2. 각 텍스트 필드의 값을 가져와서 파일에 저장
+    */
+     /*
+    1. 랜덤 고유번호 생성
+    2. 텍스트 필드 값이 비어있지 않을때
+    2. 각 텍스트 필드의 값을 가져와서 파일에 저장
+    */
+    try {
+        File allFile = new File("./");
+        String[] allFileName = allFile.list();
+        
+        // 입력 데이터
+        String name = jTextName.getText();
+        String sex = jTextSex.getText();
+        String numOfPpl = jTextPeoples.getText();
+        String roomNum = jTextRoomNum.getText();
+        String phNum = jTextPhoneNum.getText();
+        String checkInTime = jTextCheckIn.getText();
+        String checkInDate = jTextDate.getText();
+        String roomPrice = jTextPrice.getText();
+
+        // 모든 항목이 입력되었는지 확인
+        if (name.isEmpty() || sex.isEmpty() || numOfPpl.isEmpty()
+                || roomNum.isEmpty() || phNum.isEmpty() || checkInTime.isEmpty()
+                || checkInDate.isEmpty() || roomPrice.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "모든 항목을 입력해주세요.");
+            return; // 등록 중단
+        } else {
+            // 중복 예약 확인
+            boolean isDuplicate = false;
+            for (String fileName : allFileName) {
+                String storedName = readNameFromFile(fileName); // 파일에서 저장된 name 가져오기
+                String storedPhNum = readPhNumFromFile(fileName); // 파일에서 저장된 phNum 가져오기
+                if (storedName != null && storedPhNum != null && storedName.equals(name) && storedPhNum.equals(phNum)) {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+
+            if (isDuplicate) {
+                JOptionPane.showMessageDialog(null, "이미 예약한 고객입니다.");
+                return; // 등록 중단
+            }
+            
             String uniqueFileName = generateUniqueFileName(allFileName);
             String fileName = uniqueFileName + ".txt";
             File file = new File(fileName);
             BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
 
-            // 입력 데이터
-            String name = jTextName.getText();
-            String sex = jTextSex.getText();
-            String numOfPpl = jTextPeoples.getText();
-            String roomNum = jTextRoomNum.getText();
-            String phNum = jTextPhoneNum.getText();
-            String checkInTime = jTextCheckIn.getText();
-            String checkInDate = jTextDate.getText();
-            String roomPrice = jTextPrice.getText();
+            // 파일에 데이터 입력
+            bw.write(name + "/");
+            bw.write(sex + "/");
+            bw.write(numOfPpl + "/");
+            bw.write(roomNum + "/");
+            bw.write(phNum + "/");
+            bw.write(checkInTime + "/");
+            bw.write(checkInDate + "/");
+            bw.write(roomPrice + "/");
+            String selectedString = (String) jComboBox.getSelectedItem();
+            bw.write(selectedString);
+            bw.close(); // 파일 입력 완료
 
-            // 모든 항목이 입력되었는지 확인
-            if (name.isEmpty() || sex.isEmpty() || numOfPpl.isEmpty()
-                    || roomNum.isEmpty() || phNum.isEmpty() || checkInTime.isEmpty()
-                    || checkInDate.isEmpty() || roomPrice.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "모든 항목을 입력해주세요.");
-                return; // 등록 중단
-            } else {
-                // 파일에 데이터 입력
-                bw.write(name + "/");
-                bw.write(sex + "/");
-                bw.write(numOfPpl + "/");
-                bw.write(roomNum + "/");
-                bw.write(phNum + "/");
-                bw.write(checkInTime + "/");
-                bw.write(checkInDate + "/");
-                bw.write(roomPrice + "/");
-                String selectedString = (String) jComboBox.getSelectedItem();
-                bw.write(selectedString);
-                bw.close(); // 파일 입력 완료
-
-                JOptionPane.showMessageDialog(null, "등록 완료");
-                setVisible(false);
-                new BookFrame().setVisible(true); // 등록 완료 후 메인 화면으로 이동
-            }
-        } catch (IOException ex) {
-            // 예외 처리
+            JOptionPane.showMessageDialog(null, "등록 완료");
+            setVisible(false);
+            new BookFrame().setVisible(true); // 등록 완료 후 메인 화면으로 이동
         }
+    } catch (IOException ex) {
+        // 예외 처리
+    }
     }//GEN-LAST:event_jButton_BookOkActionPerformed
 
     private void jTextPhoneNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextPhoneNumActionPerformed
@@ -315,6 +371,9 @@ public class BookInput extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(BookInput.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
