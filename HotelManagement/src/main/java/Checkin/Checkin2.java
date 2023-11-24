@@ -4,7 +4,7 @@
  */
 package Checkin;
 
-import cse.hotelmanagement.MScreen;
+import Reserve.MScreen;
 import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.JOptionPane;
@@ -238,7 +238,7 @@ public class Checkin2 extends javax.swing.JFrame {
             writer.write("/");
             writer.close();
 
-            JOptionPane.showMessageDialog(null, "저장 완료");
+            JOptionPane.showMessageDialog(null, "체크인 완료");
         } catch (IOException e) {
             e.printStackTrace();
         }

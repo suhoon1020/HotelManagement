@@ -4,7 +4,7 @@
  */
 package Checkin;
 
-import cse.hotelmanagement.MScreen;
+import Reserve.MScreen;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -23,6 +23,7 @@ public class Checkin1 extends javax.swing.JFrame {
     public static String getMemo() {
         return Memo; // 'Memo' 변수를 반환하는 getter 메서드
     }
+    
     private String mm;
 
     /**
@@ -136,7 +137,7 @@ public class Checkin1 extends javax.swing.JFrame {
 
     private void jButtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtSearchActionPerformed
         // "조회" 버튼이 클릭되었을 때 실행되는 메서드
-        String fileName = mm; // 파일 이름 가져오기
+        String fileName = "./"; // 파일 이름 가져오기
         String filePath = fileName + ".txt"; // 파일 경로
         
         String name = txtName.getText(); // 이름 입력 필드에서 텍스트를 가져와 'name' 변수에 저장
@@ -147,17 +148,18 @@ public class Checkin1 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "정보를 모두 입력하세요");
             return;
         }
+        
         boolean isFound = false;
         File folder = new File(".");
         File[] files = folder.listFiles(pathname -> pathname.getName().endsWith(".txt"));
 
         if (files != null) {
             for (File file : files) {
-                BufferedReader reader = null;
+                BufferedReader allFileReader = null;
                 try {
-                    reader = new BufferedReader(new FileReader(file));
+                    allFileReader = new BufferedReader(new FileReader(file));
                     String line;
-                    while ((line = reader.readLine()) != null) {
+                    while ((line = allFileReader.readLine()) != null) {
                         String[] data = line.split("/");
                         if (data.length >= 5) {
                             String nameFromFile = data[0];
@@ -192,8 +194,8 @@ public class Checkin1 extends javax.swing.JFrame {
                     e.printStackTrace();
                 } finally {
                     try {
-                        if (reader != null) {
-                            reader.close();
+                        if (allFileReader != null) {
+                            allFileReader.close();
                         }
                     } catch (IOException e) {
                         e.printStackTrace();

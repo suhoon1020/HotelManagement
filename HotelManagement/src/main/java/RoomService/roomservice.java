@@ -4,8 +4,8 @@
  */
 package RoomService;
 
-import cse.hotelmanagement.Login;
-import cse.hotelmanagement.MScreen;
+import Reserve.Login;
+import Reserve.MScreen;
 import java.awt.PopupMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,8 +20,8 @@ import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import cse.hotelmanagement.ReserveRevise;
-import cse.hotelmanagement.SScreen;
+import Reserve.ReserveRevise;
+import Reserve.SScreen;
 import java.io.PrintWriter;
 import java.io.RandomAccessFile;
 import java.nio.file.Files;

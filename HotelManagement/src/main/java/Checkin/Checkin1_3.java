@@ -4,8 +4,8 @@
  */
 package Checkin;
 
-import cse.hotelmanagement.BookFrame;
-import cse.hotelmanagement.MScreen;
+import Reserve.BookFrame;
+import Reserve.MScreen;
 import javax.swing.JOptionPane;
 
 /**
