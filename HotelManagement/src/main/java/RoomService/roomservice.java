@@ -26,6 +26,7 @@ import java.io.PrintWriter;
 import java.io.RandomAccessFile;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -352,7 +353,25 @@ public class roomservice extends javax.swing.JFrame {
     private void deleteFood() {
 
     }
-
+    /*
+    public boolean isCheckIn(){
+        try{
+        BufferedReader checkIn_br = new BufferedReader(new InputStreamReader(
+                new FileInputStream(UniqueNum + ".txt"), "UTF-8"));
+        
+        String[] checkIn = checkIn_br.readLine().split("/");
+        ArrayList<String> checkInArray = new ArrayList<>(Arrays.asList(checkIn));
+        
+        if(!checkInArray.contains("CHECKIN")){
+            JOptionPane.showMessageDialog(null, "아직 미체크인 한 고객입니다");
+        }
+        
+        
+        }catch(IOException ex){
+            ex.printStackTrace();          
+        }
+    }
+    */
 
     private void Butt_CheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Butt_CheckActionPerformed
         /*
@@ -670,84 +689,7 @@ public class roomservice extends javax.swing.JFrame {
                 }
             }
 
-            //int Cheak_value = Integer.parseInt(UniqueNum); // 여기서 jText_Num은 텍스트 필드 이름이어야 함
-            /*
-             고객고유번호 + "r" 파일이 없으면 구동 안되게
-        
-             */
- /*
-            // 현재 디렉토리를 나타내는 경로를 저장하는 변수 선언("./"-파일위치)
-            String directoryPath = "./";
-
-            // directoryPath를 기반으로 File 객체 생성
-            File directory = new File(directoryPath);
-
-            // 디렉토리인지 확인하는 조건문
-            if (directory.isDirectory()) {
-                // 디렉토리 내의 모든 파일을 배열로 가져오기
-                File[] files = directory.listFiles();
-
-                // 파일이 발견되었는지를 나타내는 플래그
-                boolean found = false;
-
-                // files 배열의 각 파일에 대해 반복 작업 수행
-                for (File file : files) {
-                    // 파일이면서 이름이 숫자+r로 시작하고 .txt로 끝나는 조건문
-                    if (file.isFile() && file.getName().matches("\\d+r\\.txt")) {
-                        // 파일을 읽어오거나 필요한 작업을 수행합니다.
-                        try {
-                            // 파일을 읽어오는 BufferedReader 생성
-                            BufferedReader rFileReader = new BufferedReader(new FileReader(file));
-
-                            // BufferedReader를 통해 파일의 각 줄을 읽어오기
-                            String line = rFileReader.readLine();
-                            int sum = 0;
-
-                            while (line != null) {
-                                // "/"로 구분된 값을 가져와서 배열로 저장
-                                String[] values = line.split("/");
-
-                                // 배열의 세 번째 값(인덱스 2)이 숫자로 시작하는 경우에만 합산
-                                if (values.length >= 3 && values[2].matches("\\d+")) {
-                                    sum += Integer.parseInt(values[2]);
-                                }
-
-                                // 다음 줄 읽기
-                                line = rFileReader.readLine();
-                            }
-
-                            // 더한 결과를 출력
-                            jText_bill.setText(String.valueOf(sum));
-
-                            String fileName = UniqueNum + "r.bill.txt"; // 'num' 텍스트 필드에서 받아와서 파일 이름 생성
-                            if (!rTextFile.exists()) {//r 파일이 존재 하지 않는다면?
-                                JOptionPane.showMessageDialog(this, "해당 bill 파일을 생성 할 수 없습니다"); // 두개 이상 선택되었을 경우
-                            } else {
-                                try {
-                                    BufferedWriter billFileWriter = new BufferedWriter(new FileWriter(fileName, false));
-                                    billFileWriter.write(jText_bill.getText() + "\n");
-                                    billFileWriter.close();
-
-                                } catch (IOException ex) {
-                                    Logger.getLogger(roomservice202031541Test.class.getName()).log(Level.SEVERE, null, ex);
-                                }
-                            }
-                            // 파일 닫기
-                            rFileReader.close();
-
-                            // 파일이 발견되었음을 표시
-                            found = true;
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-
-                // 일치하는 파일이 없는 경우 메시지 다이얼로그 출력
-                if (!found) {
-                    JOptionPane.showMessageDialog(null, "일치하는 고객이 없습니다.");
-                }
-            }*/
+            
         }
 
     }//GEN-LAST:event_jButt_TotalPriceActionPerformed

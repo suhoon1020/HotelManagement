@@ -215,7 +215,9 @@ public class BookInput extends javax.swing.JFrame {
             for (String fileName : fileNames) {
                 if (fileName.startsWith(uniqueFileName)) {
                     isUnique = false;
+                    
                     break;
+                    
                 }
             }
         }
@@ -324,7 +326,7 @@ private String readPhNumFromFile(String fileName) {
             String selectedString = (String) jComboBox.getSelectedItem();
             bw.write(selectedString);
             bw.close(); // 파일 입력 완료
-
+            jLabel_UniqueNum.setText("고유번호: "+ uniqueFileName);
             JOptionPane.showMessageDialog(null, "등록 완료");
             setVisible(false);
             new BookFrame().setVisible(true); // 등록 완료 후 메인 화면으로 이동

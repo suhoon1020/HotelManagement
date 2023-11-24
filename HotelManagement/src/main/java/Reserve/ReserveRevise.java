@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -24,7 +25,6 @@ public class ReserveRevise extends javax.swing.JFrame {
     /**
      * Creates new form ReserveRevise
      */
-    
     /*
     예약 수정 클래스
     1.고유번호로 조회해야함
@@ -33,11 +33,11 @@ public class ReserveRevise extends javax.swing.JFrame {
     4.모든 값이 입력 되어 있지 않으면 수정 불가능
     5.해당 고객이 방을 바꿀건지, 방은 그대로 하고 다른 내용만 수정할건지 생각해야함
     6.방을 바꿀거면 Room.txt , ReservedRoom.txt도 수정돼야한다.
-    */
+     */
     public ReserveRevise() {
         initComponents();
     }
-
+    String uniqueNum;
     private String roomNumber;
 
     public String getRoomNumber() {
@@ -46,6 +46,55 @@ public class ReserveRevise extends javax.swing.JFrame {
 
     public void setRoomNumber(String roomNumber) {
         this.roomNumber = roomNumber;
+    }
+
+    public boolean isRightUniqueNum() {
+        /*
+        공백일때 일치하지 않는다가 출력이 되는게 문제
+        ->공백일때는 isUniuqueEMpty만 출력이 되야함
+         */
+        if (!jText_UniqueNum.getText().equals(uniqueNum)) {
+            JOptionPane.showMessageDialog(this, "고유번호에 입력된 값과 조회 내용이 일치하지 않습니다");
+            return true;
+        } else if (!jText_UniqueNum.getText().matches("\\d+")) {
+            JOptionPane.showMessageDialog(this, "올바른 값을 입력해 주십시오");
+            return true;
+        }
+
+        return false;
+    }
+
+    private String readNameFromFile(String fileName) {
+        try {
+            File file = new File(fileName);
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line = br.readLine();
+            br.close();
+            if (line != null) {
+                return line.split("/")[0]; // 첫 번째 데이터가 name이므로 해당 값을 반환
+            }
+        } catch (IOException ex) {
+            // 예외 처리
+        }
+        return null;
+    }
+
+    private String readPhNumFromFile(String fileName) {
+        try {
+            File file = new File(fileName);
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] data = line.split("/");
+                if (data.length >= 5) {
+                    return data[4]; // 다섯 번째 데이터가 phNum이므로 해당 값을 반환
+                }
+            }
+            br.close();
+        } catch (IOException ex) {
+            // 예외 처리
+        }
+        return null;
     }
 
     /**
@@ -227,69 +276,93 @@ public class ReserveRevise extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_BookOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_BookOkActionPerformed
+        File allFile = new File("./");
+        String[] allFileName = allFile.list();
 
-        Room room = new Room();
+        if (isRightUniqueNum()) {
+            return;
+        } else {
+            Room room = new Room();
 
-        String uniqueNum = jText_UniqueNum.getText();
-        String fileName = uniqueNum + ".txt";
-        try {
-            String name = jTextName.getText();
-            String sex = jTextSex.getText();
-            String numOfPpl = jTextPeoples.getText();
-            String newRoomNumber = jTextRoomNum.getText();
-            String phNum = jTextPhoneNum.getText();
-            String checkInTime = jTextCheckIn.getText();
-            String checkInDate = jTextDate.getText();
-            String roomPrice = jTextPrice.getText();
+            String uniqueNumOK = jText_UniqueNum.getText();
+            String fileName = uniqueNumOK + ".txt";
+            try {
+                String name = jTextName.getText();
+                String sex = jTextSex.getText();
+                String numOfPpl = jTextPeoples.getText();
+                String newRoomNumber = jTextRoomNum.getText();
+                String phNum = jTextPhoneNum.getText();
+                String checkInTime = jTextCheckIn.getText();
+                String checkInDate = jTextDate.getText();
+                String roomPrice = jTextPrice.getText();
 
-            if (name.isEmpty() || sex.isEmpty() || numOfPpl.isEmpty()
-                    || newRoomNumber.isEmpty() || phNum.isEmpty() || checkInTime.isEmpty() || checkInDate.isEmpty() || roomPrice.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "모든 항목을 입력해주세요.");
-                return; // 등록 중단
-            } else {
-                /*
+                if (name.isEmpty() || sex.isEmpty() || numOfPpl.isEmpty()
+                        || newRoomNumber.isEmpty() || phNum.isEmpty() || checkInTime.isEmpty() || checkInDate.isEmpty() || roomPrice.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "모든 항목을 입력해주세요.");
+                    return; // 등록 중단
+                } else {
+                    
+                    boolean isDuplicate = false;
+                    for (String file : allFileName) {
+                        if(!file.equals(uniqueNum+".txt")){
+                        String storedName = readNameFromFile(file); // 파일에서 저장된 name 가져오기
+                        String storedPhNum = readPhNumFromFile(file); // 파일에서 저장된 phNum 가져오기
+                        if (storedName != null && storedPhNum != null && storedName.equals(name) && storedPhNum.equals(phNum)) {
+                            isDuplicate = true;
+                            break;
+                        }
+                        }
+                    }
+
+                    if (isDuplicate) {
+                        JOptionPane.showMessageDialog(null, "이미 예약한 고객입니다.");
+                        return; // 등록 중단
+                    }
+                    /*
                 room.reserveRoom(roomNum); //방 번호 받아서 다시 예약
                 room.cancleReserve(uniqueNum); //룸 되돌리고 , 파일 삭제
-                 */
-                if (newRoomNumber.equals(roomNumber)) { //방 번호 수정 없는 경우
-                    makeUniqueFile(uniqueNum, fileName);
-                    JOptionPane.showMessageDialog(null, "수정 완료");
-                    setVisible(false);
-                    new BookFrame().setVisible(true);
-                } else {
-                    /*
+                     */
+                    if (newRoomNumber.equals(roomNumber)) { //방 번호 수정 없는 경우
+                        makeUniqueFile(uniqueNumOK, fileName);
+                        JOptionPane.showMessageDialog(null, "수정 완료");
+                        setVisible(false);
+                        new BookFrame().setVisible(true);
+                    } else {
+                        /*
                     1. ReservedRoom.txt << 해당 방 번호 삭제 후 수정값 추가. (완료)
                     2. ROOM.txt << 기존 예약 방(0)을 roomNum로 변환, 수정값 방을 0으로 변환.
-                     */
-                    // 1.
-                    room.addReservedRoomNum(newRoomNumber);
-                    room.removeReservedRoomNum(roomNumber);
-                    // 2.
-                    room.addRoomNum(roomNumber);
-                    room.removeRoomNum(newRoomNumber);
+                         */
+                        // 1.
+                        room.addReservedRoomNum(newRoomNumber);
+                        room.removeReservedRoomNum(roomNumber);
+                        // 2.
+                        room.addRoomNum(roomNumber);
+                        room.removeRoomNum(newRoomNumber);
 
-                    makeUniqueFile(uniqueNum, fileName);
-                    
-                    JOptionPane.showMessageDialog(null, "수정 완료");
-                    setVisible(false);
-                    new BookFrame().setVisible(true);
+                        makeUniqueFile(uniqueNumOK, fileName);
+
+                        JOptionPane.showMessageDialog(null, "수정 완료");
+                        setVisible(false);
+                        new BookFrame().setVisible(true);
+
+                    }
 
                 }
-
+            } catch (IOException ex) {
+                System.err.println("IOException occurred: " + ex.getMessage());
+                ex.printStackTrace(); // 더 많은 정보를 얻기 위해 스택 트레이스 출력
             }
-        } catch (IOException ex) {
-            System.err.println("IOException occurred: " + ex.getMessage());
-            ex.printStackTrace(); // 더 많은 정보를 얻기 위해 스택 트레이스 출력
         }
+
     }//GEN-LAST:event_jButton_BookOkActionPerformed
 
     private void jTextNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextNameActionPerformed
-    
+
     /*
     다시 값들을 입력하는 함수
-    */
+     */
     private void makeUniqueFile(String uniqueNum, String fileName) throws IOException {
         File file = new File(uniqueNum + ".txt");
         BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, false));
@@ -299,69 +372,84 @@ public class ReserveRevise extends javax.swing.JFrame {
         bw.write(jTextRoomNum.getText() + "/");
         bw.write(jTextPhoneNum.getText() + "/");
         bw.write(jTextCheckIn.getText() + "/");
-        bw.write(jTextDate.getText()+"/");
+        bw.write(jTextDate.getText() + "/");
         bw.write(jTextPrice.getText() + "/");
         String selectedString = (String) jComboBox.getSelectedItem();
         bw.write(selectedString);
         bw.close(); //파일 입력됨
     }
+
     /*
     고유번호 조회하는 함수 "조회" 버튼
-    */
+     */
+    public boolean isUniqueNumEmpty() {
+        if (jText_UniqueNum.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "고유번호 란이 공백입니다.");
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     private void jButt_CheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButt_CheckActionPerformed
         // TODO add your handling code here:
-        String uniqueNum = jText_UniqueNum.getText();
-        String file = uniqueNum + ".txt";
-        String filePath = "./" + file;
 
-        // 디렉토리 경로 설정
-        String directoryPath = "./";
-
-        // 디렉토리 객체 생성
-        File directory = new File(directoryPath);
-
-        // 디렉토리에 있는 파일 이름들 읽어오기
-        String[] fileNames = directory.list();
-        //System.out.println(Arrays.toString(fileNames)); 테스트용 코드
-
-        ArrayList<String> fileName = new ArrayList<>(Arrays.asList(fileNames)); //fileNames 배열을 ArrayList으로 강제 변환 시키는 함수
-
-        if (!fileName.contains(file)) {
-            JOptionPane.showMessageDialog(null, "고유번호를 조회할 수 없습니다");
+        if (isUniqueNumEmpty()) {
+            return;
         } else {
-            try {
-                FileInputStream fis = new FileInputStream(filePath);
-               // InputStreamReader isr = new InputStreamReader(fis, "EUC-KR");
-                InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
-                BufferedReader br = new BufferedReader(isr);
+            String uniqueNumCheck = jText_UniqueNum.getText();
+            String file = uniqueNumCheck + ".txt";
+            String filePath = "./" + file;
 
-                String[] text = br.readLine().split("/");
-                
-                /*
+            // 디렉토리 경로 설정
+            String directoryPath = "./";
+
+            // 디렉토리 객체 생성
+            File directory = new File(directoryPath);
+
+            // 디렉토리에 있는 파일 이름들 읽어오기
+            String[] fileNames = directory.list();
+            //System.out.println(Arrays.toString(fileNames)); 테스트용 코드
+
+            ArrayList<String> fileName = new ArrayList<>(Arrays.asList(fileNames)); //fileNames 배열을 ArrayList으로 강제 변환 시키는 함수
+
+            if (!fileName.contains(file)) {
+                JOptionPane.showMessageDialog(null, "고유번호를 조회할 수 없습니다");
+            } else {
+                try {
+                    uniqueNum = uniqueNumCheck;
+                    FileInputStream fis = new FileInputStream(filePath);
+                    InputStreamReader isr = new InputStreamReader(fis, "EUC-KR");
+                    // InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
+                    BufferedReader br = new BufferedReader(isr);
+
+                    String[] text = br.readLine().split("/");
+
+                    /*
                 테스트용 출력 코드
                 for (String any : text) {
                     System.out.println(any);
                 }
-                */
-                
-                if (text.length < 8) {
-                    JOptionPane.showMessageDialog(null, "정보가 불충분합니다");
-                } else {
-                    jTextName.setText(text[0]);
-                    jTextSex.setText(text[1]);
-                    jTextPeoples.setText(text[2]);
-                    jTextRoomNum.setText(text[3]);
-                    jTextPhoneNum.setText(text[4]);
-                    jTextCheckIn.setText(text[5]);
-                    jTextDate.setText(text[6]);
-                    jTextPrice.setText(text[7]);
+                     */
+                    if (text.length < 8) {
+                        JOptionPane.showMessageDialog(null, "정보가 불충분합니다");
+                    } else {
+                        jTextName.setText(text[0]);
+                        jTextSex.setText(text[1]);
+                        jTextPeoples.setText(text[2]);
+                        jTextRoomNum.setText(text[3]);
+                        jTextPhoneNum.setText(text[4]);
+                        jTextCheckIn.setText(text[5]);
+                        jTextDate.setText(text[6]);
+                        jTextPrice.setText(text[7]);
 
-                    String roomN = jTextRoomNum.getText();
-                    setRoomNumber(roomN);
-                    br.close();
+                        String roomN = jTextRoomNum.getText();
+                        setRoomNumber(roomN);
+                        br.close();
+                    }
+                } catch (IOException ex) {
+
                 }
-            } catch (IOException ex) {
-
             }
         }
     }//GEN-LAST:event_jButt_CheckActionPerformed

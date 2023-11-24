@@ -2,7 +2,6 @@ Reserve\MScreen.class
 RoomService\roomservice$8.class
 Reserve\BookInput$3.class
 Checkin\Checkin1_3.class
-Reserve\BookInputADD2.class
 Reserve\DeleteRoomTest.class
 Reserve\SScreen.class
 Reserve\FileTest.class
@@ -20,7 +19,6 @@ Reserve\MScreen$5.class
 Checkin\Checkin2$2.class
 Reserve\BookFrame.class
 Reserve\BookInputADD.class
-Reserve\BookInputADD2$4.class
 Checkin\Checkin1$1.class
 Reserve\BookInputADD$3.class
 Reserve\BookFrame$2.class
@@ -41,7 +39,6 @@ Checkin\Checkin1_3$3.class
 Reserve\SScreen$3.class
 Reserve\BookInputADD$2.class
 Checkin\Checkin1_2$5.class
-Reserve\BookInputADD2$3.class
 Reserve\BookInput$2.class
 Reserve\CancelReserve$3.class
 Reserve\ReserveRevise.class
@@ -54,7 +51,6 @@ RoomService\roomservice$10.class
 Checkin\Checkin1_2$2.class
 Reserve\MScreen$3.class
 RoomService\roomservice$1.class
-Reserve\BookInputADD2$2.class
 Checkin\Checkin2$4.class
 Reserve\Login$1.class
 Reserve\SScreen$2.class
@@ -70,7 +66,6 @@ Checkin\Checkin1_3$2.class
 Checkin\Checkin2.class
 RoomService\roomservice$3.class
 Reserve\BookFrame$5.class
-Reserve\BookInputADD2$1.class
 Checkin\Checkin2$3.class
 Reserve\MScreen$4.class
 Reserve\BookInput$4.class
