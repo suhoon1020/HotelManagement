@@ -65,11 +65,12 @@ public class roomservice extends javax.swing.JFrame {
         }
         return false;
     }
+
     /*
         공백일때 일치하지 않는다가 출력이 되는게 문제
         ->공백일때는 isUniuqueEMpty만 출력이 되야함
-         */
-    /*
+     */
+ /*
     public boolean isRightUniqueNum() {
       
         if (jText_Num.getText().isEmpty()) {
@@ -85,7 +86,6 @@ public class roomservice extends javax.swing.JFrame {
         }
         return false;
     }*/
-    
     public boolean isRightUniqueNum() {
         /*
         공백일때 일치하지 않는다가 출력이 되는게 문제
@@ -104,7 +104,7 @@ public class roomservice extends javax.swing.JFrame {
         }
         return false;
     }
-    
+
     public roomservice() {
         initComponents();
     }
@@ -353,25 +353,28 @@ public class roomservice extends javax.swing.JFrame {
     private void deleteFood() {
 
     }
-    /*
-    public boolean isCheckIn(){
-        try{
-        BufferedReader checkIn_br = new BufferedReader(new InputStreamReader(
-                new FileInputStream(UniqueNum + ".txt"), "UTF-8"));
-        
-        String[] checkIn = checkIn_br.readLine().split("/");
-        ArrayList<String> checkInArray = new ArrayList<>(Arrays.asList(checkIn));
-        
-        if(!checkInArray.contains("CHECKIN")){
-            JOptionPane.showMessageDialog(null, "아직 미체크인 한 고객입니다");
+
+    public boolean isCheckIn() {
+        boolean isCheckIn = false;
+        try {
+            BufferedReader checkIn_br = new BufferedReader(new InputStreamReader(
+                    new FileInputStream(jText_Num.getText() + ".txt"), "UTF-8"));
+            String[] checkIn = checkIn_br.readLine().split("/");
+            ArrayList<String> checkInArray = new ArrayList<>(Arrays.asList(checkIn));
+
+            if (!checkInArray.contains("CHECKIN")) {
+                JOptionPane.showMessageDialog(null, "아직 미체크인 한 고객입니다");
+                isCheckIn = true;
+            } else {
+                isCheckIn = false;
+            }
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
-        
-        
-        }catch(IOException ex){
-            ex.printStackTrace();          
-        }
+        return isCheckIn;
     }
-    */
+
 
     private void Butt_CheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Butt_CheckActionPerformed
         /*
@@ -413,42 +416,45 @@ public class roomservice extends javax.swing.JFrame {
                         int number = Integer.parseInt(fileName.substring(0, fileName.indexOf(".txt")));
                         // 추출한 숫자와 입력된 값(파일 조회 변수)이(가) 일치하는지 확인하는 조건문
                         if (number == Cheak_num) { //해당 파일 찾음
+                            if (isCheckIn()) {
+                                return;
+                            } else {
+                                // 파일을 읽어오거나 필요한 작업을 수행합니다.
+                                JOptionPane.showMessageDialog(null, "고객 조회가 되었습니다.");
+                                setUniqueNum(checkUniqueNum);
+                                currentUniqueNum.setText(checkUniqueNum);
+                                DefaultTableModel tblModel = (DefaultTableModel) jTable_Order.getModel();
 
-                            // 파일을 읽어오거나 필요한 작업을 수행합니다.
-                            JOptionPane.showMessageDialog(null, "고객 조회가 되었습니다.");
-                            setUniqueNum(checkUniqueNum);
-                            currentUniqueNum.setText(checkUniqueNum);
-                            DefaultTableModel tblModel = (DefaultTableModel) jTable_Order.getModel();
+                                tblModel.setRowCount(0); //박스 초기화
 
-                            tblModel.setRowCount(0); //박스 초기화
+                                jText_Amount.setText(null);
+                                jText_Cost.setText(null);
+                                jText_bill.setText(null);
 
-                            jText_Amount.setText(null);
-                            jText_Cost.setText(null);
-                            jText_bill.setText(null);
+                                //파일 읽어와서 테이블에 출력하기
+                                //String paths = System.getProperty("user.dir");
+                                //String uniqueNum = this.jText_Num.getText();
+                                File rfile = new File(checkUniqueNum + "r.txt");
 
-                            //파일 읽어와서 테이블에 출력하기
-                            //String paths = System.getProperty("user.dir");
-                            //String uniqueNum = this.jText_Num.getText();
-                            File rfile = new File(checkUniqueNum + "r.txt");
+                                if (rfile.exists()) {
+                                    try (Scanner scanner = new Scanner(rfile)) {
+                                        tblModel.setRowCount(0);
+                                        // 파일 내용을 테이블에 출력
+                                        while (scanner.hasNextLine()) { //scanner.hasNextLine -> 새로운 라인이 있는가?
+                                            String line = scanner.nextLine();
+                                            String[] rowData = line.split("/");
+                                            tblModel.addRow(rowData);
+                                        }
 
-                            if (rfile.exists()) {
-                                try (Scanner scanner = new Scanner(rfile)) {
-                                    tblModel.setRowCount(0);
-                                    // 파일 내용을 테이블에 출력
-                                    while (scanner.hasNextLine()) { //scanner.hasNextLine -> 새로운 라인이 있는가?
-                                        String line = scanner.nextLine();
-                                        String[] rowData = line.split("/");
-                                        tblModel.addRow(rowData);
+                                        // 테이블에 모델 설정
+                                        jTable_Order.setModel(tblModel);
+                                    } catch (FileNotFoundException e) {
+                                        e.printStackTrace();
                                     }
-
-                                    // 테이블에 모델 설정
-                                    jTable_Order.setModel(tblModel);
-                                } catch (FileNotFoundException e) {
-                                    e.printStackTrace();
                                 }
+                                // 파일이 발견되었음을 표시
+                                found = true;
                             }
-                            // 파일이 발견되었음을 표시
-                            found = true;
                         }
 
                     }
@@ -502,7 +508,7 @@ public class roomservice extends javax.swing.JFrame {
     private void Butt_SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Butt_SaveActionPerformed
 
         String amount = jText_Amount.getText();
-        
+
         if (amount.isEmpty() || !amount.matches("\\d+")) { //빈값 or 정수값이 아니면
             JOptionPane.showMessageDialog(null, "수량이 입력되지 않았습니다");
         } else {
@@ -689,7 +695,6 @@ public class roomservice extends javax.swing.JFrame {
                 }
             }
 
-            
         }
 
     }//GEN-LAST:event_jButt_TotalPriceActionPerformed

@@ -28,6 +28,18 @@ public class BookInput extends javax.swing.JFrame {
     public BookInput() {
         initComponents();
     }
+    private static String[] book_data;  // book_data를 클래스 필드로 선언
+    private static String book_bill;  // book_data를 클래스 필드로 선언
+    
+    // book_data getter
+    public static String[] getBook_data() {
+        return book_data;
+    }
+    
+    // book_bill getter
+    public static String getBook_bill() {
+        return book_bill;
+    }
     
 
     /**
