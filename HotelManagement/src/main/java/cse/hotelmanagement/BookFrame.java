@@ -94,6 +94,7 @@ public class BookFrame extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButt_BookInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButt_BookInputActionPerformed

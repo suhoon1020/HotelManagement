@@ -4,6 +4,8 @@
  */
 package cse.hotelmanagement;
 
+import Checkin.Checkin1;
+
 /**
  *
  * @author 심수훈
@@ -46,6 +48,11 @@ public class MScreen extends javax.swing.JFrame {
         });
 
         jButt_CheckIn.setText("체크인");
+        jButt_CheckIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButt_CheckInActionPerformed(evt);
+            }
+        });
 
         jButt_CheckOut.setText("체크아웃");
         jButt_CheckOut.addActionListener(new java.awt.event.ActionListener() {
@@ -94,6 +101,7 @@ public class MScreen extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButt_ReserveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButt_ReserveActionPerformed
@@ -104,6 +112,11 @@ public class MScreen extends javax.swing.JFrame {
     private void jButt_CheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButt_CheckOutActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButt_CheckOutActionPerformed
+
+    private void jButt_CheckInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButt_CheckInActionPerformed
+        new Checkin1().setVisible(true);
+        setVisible(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButt_CheckInActionPerformed
 
     /**
      * @param args the command line arguments

@@ -83,6 +83,12 @@ public class BookInput extends javax.swing.JFrame {
             }
         });
 
+        jTextPhoneNum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextPhoneNumActionPerformed(evt);
+            }
+        });
+
         jButton_BookOk.setText("예약 확정");
         jButton_BookOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,6 +186,7 @@ public class BookInput extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     
@@ -244,6 +251,10 @@ public class BookInput extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jButton_BookOkActionPerformed
+
+    private void jTextPhoneNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextPhoneNumActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextPhoneNumActionPerformed
 
     /**
      * @param args the command line arguments
