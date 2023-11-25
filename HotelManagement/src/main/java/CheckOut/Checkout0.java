@@ -36,6 +36,8 @@ public class Checkout0 extends JFrame {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("체크아웃");  // 체크아웃 창을 생성
+        frame.setSize(500,300);
+        frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  // 프레임이 닫힐 때 프로그램이 종료하도록 설정
         frame.setLayout(null);  // 레이아웃 매니저를 비활성화
         // frame.setLayout(new FlowLayout());
