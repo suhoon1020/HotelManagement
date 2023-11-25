@@ -7,8 +7,8 @@ package Login;
 import CheckOut.Checkout0;
 import Checkin.Checkin1;
 import Reserve.BookFrame;
+import Roomservice1.RoomService;
 import Restaurant.Restaurant;
-import RoomService.roomservice;
 
 /**
  *
@@ -131,7 +131,7 @@ public class MScreen extends javax.swing.JFrame {
 
     private void jButt_RoomServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButt_RoomServiceActionPerformed
         // TODO add your handling code here:
-        new roomservice().setVisible(true);
+        new RoomService().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jButt_RoomServiceActionPerformed
 

@@ -7,7 +7,8 @@ package Login;
 import CheckOut.Checkout0;
 import Checkin.Checkin1;
 import Reserve.BookFrame;
-import RoomService.roomservice;
+import Restaurant.Restaurant;
+import Roomservice1.RoomService;
 
 
 /**
@@ -57,6 +58,11 @@ public class SScreen extends javax.swing.JFrame {
         });
 
         jButt_Res.setText("레스토랑");
+        jButt_Res.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButt_ResActionPerformed(evt);
+            }
+        });
 
         jButt_CheckIn.setText("체크인");
         jButt_CheckIn.addActionListener(new java.awt.event.ActionListener() {
@@ -115,7 +121,7 @@ public class SScreen extends javax.swing.JFrame {
 
     private void jButt_RoomServActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButt_RoomServActionPerformed
         // TODO add your handling code here:
-        new roomservice().setVisible(true);
+        new RoomService().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jButt_RoomServActionPerformed
 
@@ -129,6 +135,12 @@ public class SScreen extends javax.swing.JFrame {
         new Checkout0().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jButt_CheckOutActionPerformed
+
+    private void jButt_ResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButt_ResActionPerformed
+        // TODO add your handling code here:
+         new Restaurant().setVisible(true);
+         setVisible(false);
+    }//GEN-LAST:event_jButt_ResActionPerformed
 
     /**
      * @param args the command line arguments
