@@ -32,8 +32,8 @@ public class Checkout2 extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButt_Ok = new javax.swing.JButton();
-        jButt_No = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,17 +41,17 @@ public class Checkout2 extends javax.swing.JFrame {
 
         jLabel3.setText("현재 체크인 상태입니다.");
 
-        jButt_Ok.setText("예");
-        jButt_Ok.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("예");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButt_OkActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
-        jButt_No.setText("아니요");
-        jButt_No.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("아니요");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButt_NoActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -67,9 +67,9 @@ public class Checkout2 extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(jButt_Ok, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(jButt_No, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50))
         );
         layout.setVerticalGroup(
@@ -81,8 +81,8 @@ public class Checkout2 extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButt_Ok)
-                    .addComponent(jButt_No))
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addGap(50, 50, 50))
         );
 
@@ -90,18 +90,18 @@ public class Checkout2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     // 첫 번째 버튼 클릭시 date_time의 메인 메서드 호출 후 현재 창 숨김
-    private void jButt_OkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButt_OkActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         date_time.main(new String[0]);  // date_time 메인 메서드 호출
         setVisible(false);  // 현재 창 숨김
-    }//GEN-LAST:event_jButt_OkActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // 두 번째 버튼 클릭시 Checkout1의 메인 메서드 호출 후 현재 창 숨김
-    private void jButt_NoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButt_NoActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         Checkout1.main(new String[0]);  // Checkout1 메인 메서드 호출
         setVisible(false);  // 현재 창 숨김
-    }//GEN-LAST:event_jButt_NoActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,8 +141,8 @@ public class Checkout2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButt_No;
-    private javax.swing.JButton jButt_Ok;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables

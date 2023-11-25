@@ -184,6 +184,7 @@ public class Checkin1 extends javax.swing.JFrame {
                                     Memo = fileNumber;
                                     isFound = true;
                                     setVisible(false); // 현재 화면을 숨김
+                                    allFileReader.close();
                                     break;
                                 }
                             }

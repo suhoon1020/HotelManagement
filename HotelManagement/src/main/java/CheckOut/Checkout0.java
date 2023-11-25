@@ -32,13 +32,11 @@ public class Checkout0 extends JFrame {
         Checkout0.lys = lys;
     }
 
-    
-
     public static void main(String[] args) {
         JFrame frame = new JFrame("체크아웃");  // 체크아웃 창을 생성
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  // 프레임이 닫힐 때 프로그램이 종료하도록 설정
         frame.setLayout(null);  // 레이아웃 매니저를 비활성화
-
+       // frame.setLayout(new FlowLayout());
         // 컴포넌트 생성
         JLabel Num = new JLabel("고유 번호 조회");
         JTextField searchField = new JTextField(20);
@@ -66,7 +64,7 @@ public class Checkout0 extends JFrame {
                                     BufferedReader br = new BufferedReader(new FileReader(qwer + ".txt"));
                                     String[] currentLine = br.readLine().split("/");
                                     ArrayList<String> array = new ArrayList<>(Arrays.asList(currentLine));
-
+                                    br.close();
                                     if (!array.contains("CHECKIN")) {
                                         JOptionPane.showMessageDialog(null, "아직 체크인 하지 않은 고객입니다");
                                     } else {
@@ -79,19 +77,17 @@ public class Checkout0 extends JFrame {
                                 } catch (IOException ex) {
                                     ex.printStackTrace();
                                 }
-                                // 파일을 읽어오거나 필요한 작업을 수행합니다.                             
                             }
                         }
                     }
                 }
             }
         });
-
         // 이전 버튼에 대한 액션 리스너
         prevButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // 버튼 클릭 시 호출할 프레임 보이기
-                MScreen.main(new String[0]); // MScreen의 main 메서드 호출
+                new MScreen().setVisible(true);
                 frame.setVisible(false); // 현재 프레임 숨기기
             }
         });

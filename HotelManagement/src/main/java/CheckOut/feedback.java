@@ -8,7 +8,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import CheckOut.Checkout0;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 
 /**
  *
@@ -147,7 +149,13 @@ public class feedback extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         // 파일 이름을 설정합니다. 고유번호와 "fb.txt"를 결합하여 파일 이름을 만듭니다.
-        File fileName = new File(fname + "fb.txt");
+        File nfile = new File(fname+".txt");
+        
+        
+        
+        
+        
+        
 
         // 콤보 박스에서 선택된 항목(만족도 점수)을 가져옵니다.
         String score = (String) jComboBox1.getSelectedItem();
@@ -156,6 +164,17 @@ public class feedback extends javax.swing.JFrame {
 
         try {
             // 파일에 데이터를 쓰기 위한 BufferedWriter 객체를 생성합니다. FileWriter를 이용해 해당 파일에 접근하며, 파일이 이미 존재할 경우 내용을 이어쓰게 설정합니다.
+            BufferedReader br = new BufferedReader(new FileReader(fname + ".txt"));
+            
+            String[] nj = br.readLine().split("/");
+            
+            br.close();
+            String name = nj[0];
+            String phont= nj[4];
+            
+            
+            
+            File fileName = new File(name + phont+ ".txt");
             BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true));
             bw.write("만족도: " + score + "\n");  // 만족도 점수를 파일에 씁니다.
             bw.write("피드백: " + feedback + "\n\n");  // 피드백을 파일에 씁니다.
@@ -163,6 +182,8 @@ public class feedback extends javax.swing.JFrame {
  
             // 피드백이 성공적으로 기록되었음을 사용자에게 알립니다.
             JOptionPane.showMessageDialog(null, "피드백이 성공적으로 기록되었습니다. 감사합니다!");
+            Checkout1.main(new String[0]);  // Checkout0 프레임 보이기
+            setVisible(false); // 현재 프레임 숨기기
             }
         
         // 파일 쓰기 과정에서 IOException이 발생할 경우 처리하는 부분입니다.

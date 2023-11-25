@@ -7,13 +7,11 @@ CheckOut\date_time$4.class
 Login\SScreen$3.class
 Reserve\ReserveRevise$5.class
 Reserve\BookFrame$3.class
-Reserve\BookInputADD$1.class
 CheckOut\Checkout0$1.class
 Restaurant\Restaurant$9.class
 Login\MScreen$4.class
 Login\MScreen.class
 CheckOut\Checkout1.class
-Reserve\BookInputADD$4.class
 Checkin\Checkin2$5.class
 Reserve\ReserveRevise$2.class
 Checkin\Checkin1_2$1.class
@@ -30,10 +28,8 @@ CheckOut\bil$4.class
 Checkin\Checkin2$2.class
 Reserve\BookFrame.class
 CheckOut\bil$1.class
-Reserve\BookInputADD.class
 CheckOut\date_time$2.class
 Checkin\Checkin1$1.class
-Reserve\BookInputADD$3.class
 CheckOut\Checkout1$4.class
 Reserve\BookFrame$2.class
 Reserve\Room.class
@@ -56,7 +52,6 @@ Checkin\Checkin2$7.class
 CheckOut\Checkout2$3.class
 Checkin\Checkin1_3$3.class
 CheckOut\date_time$3.class
-Reserve\BookInputADD$2.class
 Checkin\Checkin1_2$5.class
 CheckOut\Checkout3$1.class
 CheckOut\feedback$1.class

@@ -2,8 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 package CheckOut;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -17,19 +17,18 @@ import CheckOut.Checkout0;
  *
  * @author 이시연
  */
-
 public class date_time extends Checkout0 {
+
     private static String[] checkout_data;  // 체크아웃 데이터 저장 배열
-    
+
     // 체크아웃 데이터 getter
     public static String[] getCheckout_data() {
         return checkout_data;
     }
-    
-     /**
+
+    /**
      * Creates new form date_time
      */
-    
     // 생성자에서 컴포넌트 초기화
     public date_time() {;
         initComponents();
@@ -272,30 +271,29 @@ public class date_time extends Checkout0 {
     // 확인 버튼 클릭 이벤트 처리
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
+
         // 체크아웃 데이터 파일 생성
         File fileName = new File(getLys() + "out.txt");
-       
+
         // 콤보박스에서 선택한 값 추출
         String years = (String) jComboBox4.getSelectedItem();
         String months = (String) jComboBox1.getSelectedItem();
         String days = (String) jComboBox5.getSelectedItem();
         String ms = (String) jComboBox2.getSelectedItem();
         String hours = (String) jComboBox3.getSelectedItem();
-        String minutes = (String) jComboBox6.getSelectedItem();  
-       
+        String minutes = (String) jComboBox6.getSelectedItem();
+
         // 체크아웃 데이터 배열에 저장
         checkout_data = new String[]{ms, hours, minutes};
-       
+
         // 모든 항목이 입력되었는지 확인
-        if (!years.matches("\\d+") || !months.matches("\\d+") || !days.matches("\\d+") || !ms.matches("^[a-zA-Z][2]$") || !hours.matches("\\d+") || !minutes.matches("\\d+")) {
-                JOptionPane.showMessageDialog(null, "모든 항목을 입력해주세요.");  // 입력 안된 항목 있을 시 경고 메시지 출력
-                return; // 함수 종료
-        } 
-        else {
+        if (years.isEmpty() || months.isEmpty() || days.isEmpty() || ms.isEmpty() || hours.isEmpty() || minutes.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "모든 항목을 입력해주세요.");  // 입력 안된 항목 있을 시 경고 메시지 출력
+            return; // 함수 종료
+        } else {
             try {
                 // 파일에 체크아웃 데이터 작성
-                BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true));
+                BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, false));
                 bw.write(years + "년 ");
                 bw.write(months + "월 ");
                 bw.write(days + "일 / ");
@@ -304,31 +302,25 @@ public class date_time extends Checkout0 {
                 bw.write(minutes + "분 " + System.lineSeparator());
 
                 bw.close(); //파일 닫기
-                
-                
-                
+
                 JOptionPane.showMessageDialog(null, "등록 완료");  // 등록 완료 메시지 출력
-            
+
                 // 파일 내용 출력
                 BufferedReader br = null;
                 br = new BufferedReader(new FileReader(fileName));
                 String line = null;
 
-                while((line = br.readLine()) != null) {
-                     System.out.println(line);
-                    }
-
-            } 
-            
-            catch (FileNotFoundException e) {
+                while ((line = br.readLine()) != null) {
+                    System.out.println(line);
+                }
+                br.close();
+            } catch (FileNotFoundException e) {
                 System.out.println("등록 실패");   // 파일 생성 실패 시 메시지 출력
 
-            }
-            
-            catch (IOException ex) {
+            } catch (IOException ex) {
                 ex.printStackTrace();  // 오류 메시지 출력
             }
-            
+
             Checkout3.main(new String[0]);   // 등록 완료 후 Checkout3 프레임으로 이동
             setVisible(false);  // 현재 창 숨기기
         }
@@ -338,7 +330,7 @@ public class date_time extends Checkout0 {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         File chagefile = new File(getLys() + "out.txt");   // 체크아웃 데이터 파일 열기
-  
+
         // 콤보박스에서 선택한 값 추출
         String years = (String) jComboBox4.getSelectedItem();
         String months = (String) jComboBox1.getSelectedItem();
@@ -346,38 +338,36 @@ public class date_time extends Checkout0 {
         String ms = (String) jComboBox2.getSelectedItem();
         String hours = (String) jComboBox3.getSelectedItem();
         String minutes = (String) jComboBox6.getSelectedItem();
-      
+
         // 체크아웃 데이터 배열에 저장
         String checkout_data[] = {years, months, days, ms, hours, minutes};
 
         try {
-                // 파일 열어 체크아웃 데이터 수정
-                BufferedWriter writer = new BufferedWriter(new FileWriter(chagefile));
-                writer.write(years + "년 ");
-                writer.write(months + "월 ");
-                writer.write(days + "일 / ");
-                writer.write(ms + " ");
-                writer.write(hours + "시 ");
-                writer.write(minutes + "분 " + System.lineSeparator());
-                writer.close();  // 파일 닫기
-                
-                JOptionPane.showMessageDialog(null, "수정 완료");  // 수정 완료 메시지 출력
-            
-                // 수정된 파일 내용 출력
-                BufferedReader br = null;
-                br = new BufferedReader(new FileReader(chagefile));
-                String line = null;
+            // 파일 열어 체크아웃 데이터 수정
+            BufferedWriter writer = new BufferedWriter(new FileWriter(chagefile));
+            writer.write(years + "년 ");
+            writer.write(months + "월 ");
+            writer.write(days + "일 / ");
+            writer.write(ms + " ");
+            writer.write(hours + "시 ");
+            writer.write(minutes + "분 " + System.lineSeparator());
+            writer.close();  // 파일 닫기
 
-                while((line = br.readLine()) != null) {
-                     System.out.println(line);
-                }
-        }
-        
-        catch (FileNotFoundException e) {
+            JOptionPane.showMessageDialog(null, "수정 완료");  // 수정 완료 메시지 출력
+
+            // 수정된 파일 내용 출력
+            BufferedReader br = null;
+            br = new BufferedReader(new FileReader(chagefile));
+            String line = null;
+
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+            br.close();
+
+        } catch (FileNotFoundException e) {
             System.out.println("수정 실패");  // 파일 열기 실패 시 메시지 출력
-        }
-        
-        catch (IOException ex) {
+        } catch (IOException ex) {
             ex.printStackTrace();  // 오류 메시지 출력
         }
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -420,7 +410,6 @@ public class date_time extends Checkout0 {
     /**
      * @param args the command line arguments
      */
-    
     // 메인 메서드
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

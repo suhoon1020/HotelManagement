@@ -65,8 +65,8 @@ public class Checkout1 {
         
         // 버튼 위치와 크기 설정
         btn1.setBounds(50, 50, 100, 50);
-        btn2.setBounds(50, 150, 100, 50);
-        btn3.setBounds(50, 250, 100, 50);
+        btn3.setBounds(50, 150, 100, 50);
+        btn2.setBounds(50, 250, 100, 50);
         prevButton.setBounds(150, 350, 60, 25);
         
         // 버튼을 프레임에 추가

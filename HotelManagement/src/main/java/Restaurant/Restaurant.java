@@ -92,7 +92,7 @@ public class Restaurant extends javax.swing.JFrame {
                     new FileInputStream(jText_Num.getText() + ".txt"), "UTF-8"));
             String[] checkIn = checkIn_br.readLine().split("/");
             ArrayList<String> checkInArray = new ArrayList<>(Arrays.asList(checkIn));
-
+            checkIn_br.close();
             if (!checkInArray.contains("CHECKIN")) {
                 JOptionPane.showMessageDialog(null, "아직 미체크인 한 고객입니다");
                 isCheckIn = true;
@@ -502,7 +502,7 @@ public class Restaurant extends javax.swing.JFrame {
 
     private void Butt_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Butt_BackActionPerformed
         // TODO add your handling code here:
-        new MScreen();
+        new MScreen().setVisible(true);        
         setVisible(false);
     }//GEN-LAST:event_Butt_BackActionPerformed
 

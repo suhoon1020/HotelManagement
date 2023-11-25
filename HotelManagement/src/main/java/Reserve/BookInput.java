@@ -214,28 +214,40 @@ public class BookInput extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextNameActionPerformed
 
     
-    private static String generateUniqueFileName(String[] fileNames) {
-        Random random = new Random();
-        String uniqueFileName = null;
-        boolean isUnique = false;
+    /**
+ * @param fileNames 파일 이름 배열
+ * @return 중복되지 않는 고유한 파일 이름
+ */
+private static String generateUniqueFileName(String[] fileNames) {
+    // 무작위 숫자를 생성하기 위한 Random 객체 생성
+    Random random = new Random();
 
-        while (!isUnique) {
-            int randomUnique = random.nextInt(100) + 1;
-            uniqueFileName = String.valueOf(randomUnique);
-            isUnique = true;
+    // 생성된 고유 파일 이름
+    String uniqueFileName = null;
 
-            for (String fileName : fileNames) {
-                if (fileName.startsWith(uniqueFileName)) {
-                    isUnique = false;
-                    
-                    break;
-                    
-                }
+    // 파일 이름이 중복되지 않을 때까지 반복
+    boolean isUnique = false;
+    while (!isUnique) {
+        // 1부터 100까지의 무작위 숫자 생성
+        int randomUnique = random.nextInt(100) + 1;
+
+        // 생성된 숫자를 문자열로 변환하여 파일 이름으로 사용
+        uniqueFileName = String.valueOf(randomUnique);
+        isUnique = true;
+
+        // 파일 이름 배열을 순회하며 중복 검사
+        for (String fileName : fileNames) {
+            if (fileName.startsWith(uniqueFileName)) {
+                // 중복된 경우 isUnique를 false로 설정하고 반복문 종료
+                isUnique = false;
+                break;
             }
         }
-
-        return uniqueFileName;
     }
+
+    // 중복되지 않는 고유한 파일 이름 반환
+    return uniqueFileName;
+}
     
     private String readNameFromFile(String fileName) {
     try {
@@ -251,6 +263,7 @@ public class BookInput extends javax.swing.JFrame {
     }
     return null;
 }
+    
 
 private String readPhNumFromFile(String fileName) {
     try {
@@ -275,11 +288,6 @@ private String readPhNumFromFile(String fileName) {
     private void jButton_BookOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_BookOkActionPerformed
         
  /*
-    1. 랜덤 고유번호 생성
-    2. 텍스트 필드 값이 비어있지 않을때
-    2. 각 텍스트 필드의 값을 가져와서 파일에 저장
-    */
-     /*
     1. 랜덤 고유번호 생성
     2. 텍스트 필드 값이 비어있지 않을때
     2. 각 텍스트 필드의 값을 가져와서 파일에 저장

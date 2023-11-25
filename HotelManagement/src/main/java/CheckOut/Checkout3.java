@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package CheckOut;
-import Login.MScreen;
+
 
 
 /**
@@ -76,17 +76,16 @@ public class Checkout3 extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     // 확인 버튼 클릭 시 메인 화면으로 돌아가고 현재 창을 숨김
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        MScreen.main(new String[0]);   // 메인 화면 호출
+        Checkout1.main(new String[0]);  // Checkout1의 main 메서드 호출
         setVisible(false);   // 현재 창 숨김
         Checkout0 co0 = new Checkout0();
-        
-        
-        
+   
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

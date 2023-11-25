@@ -161,7 +161,7 @@ public class Checkin1_2 extends javax.swing.JFrame {
         
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line = reader.readLine();
-           
+            reader.close();
             if (line != null) { //읽은 줄이 null이 아닌 경우
                 String[] data = line.split("/");    // 읽은 줄을 "/" 문자를 기준으로 분리하고, 분리된 문자열 배열을 'data' 변수에 저장
                

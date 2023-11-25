@@ -119,7 +119,8 @@ public class MScreen extends javax.swing.JFrame {
 
     private void jButt_CheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButt_CheckOutActionPerformed
         // TODO add your handling code here:
-        new Checkout0().setVisible(true);
+        Checkout0 ch = new Checkout0();
+        ch.main(new String[0]);
         setVisible(false);
     }//GEN-LAST:event_jButt_CheckOutActionPerformed
 
@@ -171,7 +172,7 @@ public class MScreen extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+                new MScreen().setVisible(true);
             }
         });
     }
