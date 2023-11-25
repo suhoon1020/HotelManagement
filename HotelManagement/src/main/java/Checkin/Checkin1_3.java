@@ -5,7 +5,7 @@
 package Checkin;
 
 import Reserve.BookFrame;
-import Reserve.MScreen;
+import Login.MScreen;
 import javax.swing.JOptionPane;
 
 /**

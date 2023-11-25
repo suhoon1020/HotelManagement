@@ -4,9 +4,9 @@
  */
 package Checkin;
 
-import Reserve.Login;
-import Reserve.MScreen;
-import Reserve.SScreen;
+import Login.Login;
+import Login.MScreen;
+import Login.SScreen;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -224,8 +224,7 @@ public class Checkin1 extends javax.swing.JFrame {
         } else {
             new MScreen().setVisible(true);
             setVisible(false);
-        }
-        
+        }       
     }//GEN-LAST:event_jButtcancelActionPerformed
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed

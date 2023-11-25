@@ -4,7 +4,7 @@
  */
 package Checkin;
 
-import Reserve.MScreen;
+import Login.MScreen;
 import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.JOptionPane;

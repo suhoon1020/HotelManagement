@@ -4,7 +4,7 @@
  */
 package Checkin;
 
-import Reserve.MScreen;
+import Login.MScreen;
 import java.awt.event.ActionEvent;
 import java.io.BufferedReader;
 import java.io.IOException;

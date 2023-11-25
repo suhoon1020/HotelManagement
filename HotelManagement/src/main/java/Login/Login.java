@@ -2,58 +2,74 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Reserve;
+package Login;
 
 /**
  *
  * @author 심수훈
  */
 import javax.swing.JOptionPane;
-import Reserve.MScreen;
-import Reserve.SScreen;
 
 public class Login extends javax.swing.JFrame {
 
     /**
      * Creates new form Login
      */
-    
     /*
     1.매니저 / 스태프 ID/PW를 따로 하여 각각 로그인 구현
     2.내가 로그인 한게 매니저인지 스태프인지 구분하기 위해 isMS 변수 구성
     타 클래스에서 홈 화면으로 돌아올때 매니저/스태프 화면 구분하기 위해 선언한것
     3.BookFrame 화면의 Home 버튼을 보면 됨
-    */
-    
-    
+     */
     //true = 스태프 false = 매니저
     private boolean isMS;
-    
+
     private static Login instance = new Login(); //싱글턴 패턴
 
-    
-    
     public Login() {
         initComponents();
     }
-    
-    public static Login getInstance(){
-        if(instance == null){
+
+    public static Login getInstance() {
+        if (instance == null) {
             instance = new Login();
         }
         return instance;
     }
-    
-    public void setMS(boolean isMS){
+
+    public void setMS(boolean isMS) {
         this.isMS = isMS;
     }
-    
-    public boolean getMS(){
+
+    public boolean getMS() {
         return isMS;
     }
 
+    public void mainLogin(String Id, String Pw) {
+        String mID = "admin";
+        String mPW = "1234";
 
-    
+        String sID = "staff";
+        String sPW = "1234@";
+
+        if (Id.equals(mID) && Pw.equals(mPW)) {
+            JOptionPane.showMessageDialog(null, "관리자 로그인 성공");
+            MScreen ms = new MScreen();
+            ms.setVisible(true);
+            setVisible(false);
+            instance.setMS(false);
+
+        } else if (Id.equals(sID) && Pw.equals(sPW)) {
+            JOptionPane.showMessageDialog(null, "직원 로그인 성공");
+            SScreen sc = new SScreen();
+            sc.setVisible(true);
+            setVisible(false);
+            instance.setMS(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "로그인 실패");
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,7 +79,7 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        Login = new javax.swing.JButton();
         jTextField_ID = new javax.swing.JTextField();
         jPasswordField_PW = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
@@ -71,10 +87,10 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("로그인");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Login.setText("로그인");
+        Login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                LoginActionPerformed(evt);
             }
         });
 
@@ -90,7 +106,7 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(149, 149, 149)
-                        .addComponent(jButton1))
+                        .addComponent(Login))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,7 +130,7 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(jPasswordField_PW, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(Login)
                 .addGap(52, 52, 52))
         );
 
@@ -122,33 +138,11 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
         // TODO add your handling code here:
+        mainLogin(jTextField_ID.getText(), jPasswordField_PW.getText());
 
-        String mID = "admin";
-        String mPW = "1234";
-
-        String sID = "staff";
-        String sPW = "1234@";
-
-        if (jTextField_ID.getText().equals(mID) && jPasswordField_PW.getText().equals(mPW)) {
-            JOptionPane.showMessageDialog(null, "관리자 로그인 성공");
-            MScreen ms = new MScreen();
-            ms.setVisible(true);
-            setVisible(false);
-            instance.setMS(false);
-
-        } else if (jTextField_ID.getText().equals(sID) && jPasswordField_PW.getText().equals(sPW)) {
-            JOptionPane.showMessageDialog(null, "직원 로그인 성공");
-            SScreen sc = new SScreen();
-            sc.setVisible(true);
-            setVisible(false);
-            instance.setMS(true);
-        } else {
-            JOptionPane.showMessageDialog(null, "로그인 실패");
-        }
-
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_LoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,7 +180,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton Login;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPasswordField jPasswordField_PW;

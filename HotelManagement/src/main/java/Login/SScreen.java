@@ -2,23 +2,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Reserve;
+package Login;
 
 import CheckOut.Checkout0;
 import Checkin.Checkin1;
-import Restaurant.Restaurant;
+import Reserve.BookFrame;
 import RoomService.roomservice;
+
 
 /**
  *
  * @author 심수훈
  */
-public class MScreen extends javax.swing.JFrame {
+public class SScreen extends javax.swing.JFrame {
 
     /**
-     * Creates new form Screen
+     * Creates new form SScreen
      */
-    public MScreen() {
+  
+   
+    public SScreen() {
         initComponents();
     }
 
@@ -31,23 +34,29 @@ public class MScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
-        jButt_Reserve = new javax.swing.JButton();
+        jButton_reserve = new javax.swing.JButton();
+        jButt_RoomServ = new javax.swing.JButton();
+        jButt_Res = new javax.swing.JButton();
         jButt_CheckIn = new javax.swing.JButton();
         jButt_CheckOut = new javax.swing.JButton();
-        jButt_RoomService = new javax.swing.JButton();
-        jButt_Restaurant = new javax.swing.JButton();
-
-        jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButt_Reserve.setText("예약");
-        jButt_Reserve.addActionListener(new java.awt.event.ActionListener() {
+        jButton_reserve.setText("예약");
+        jButton_reserve.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButt_ReserveActionPerformed(evt);
+                jButton_reserveActionPerformed(evt);
             }
         });
+
+        jButt_RoomServ.setText("룸서비스");
+        jButt_RoomServ.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButt_RoomServActionPerformed(evt);
+            }
+        });
+
+        jButt_Res.setText("레스토랑");
 
         jButt_CheckIn.setText("체크인");
         jButt_CheckIn.addActionListener(new java.awt.event.ActionListener() {
@@ -63,81 +72,63 @@ public class MScreen extends javax.swing.JFrame {
             }
         });
 
-        jButt_RoomService.setText("룸서비스 주문");
-        jButt_RoomService.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButt_RoomServiceActionPerformed(evt);
-            }
-        });
-
-        jButt_Restaurant.setText("레스토랑");
-        jButt_Restaurant.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButt_RestaurantActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButt_RoomService, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButt_CheckOut)
-                    .addComponent(jButt_CheckIn)
-                    .addComponent(jButt_Reserve)
-                    .addComponent(jButt_Restaurant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(254, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jButt_CheckOut)
+                        .addComponent(jButt_CheckIn))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jButt_Res, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButt_RoomServ, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton_reserve, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(287, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jButt_Reserve)
-                .addGap(26, 26, 26)
+                .addGap(32, 32, 32)
+                .addComponent(jButton_reserve)
+                .addGap(18, 18, 18)
                 .addComponent(jButt_CheckIn)
                 .addGap(26, 26, 26)
                 .addComponent(jButt_CheckOut)
-                .addGap(33, 33, 33)
-                .addComponent(jButt_RoomService)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addComponent(jButt_Restaurant)
-                .addGap(35, 35, 35))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(jButt_RoomServ)
+                .addGap(38, 38, 38)
+                .addComponent(jButt_Res)
+                .addGap(38, 38, 38))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButt_ReserveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButt_ReserveActionPerformed
+    private void jButton_reserveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_reserveActionPerformed
         new BookFrame().setVisible(true);
-        setVisible(false);// TODO add your handling code here:
-    }//GEN-LAST:event_jButt_ReserveActionPerformed
-
-    private void jButt_CheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButt_CheckOutActionPerformed
-        // TODO add your handling code here:
-        new Checkout0().setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_jButt_CheckOutActionPerformed
+    }//GEN-LAST:event_jButton_reserveActionPerformed
+
+    private void jButt_RoomServActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButt_RoomServActionPerformed
+        // TODO add your handling code here:
+        new roomservice().setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jButt_RoomServActionPerformed
 
     private void jButt_CheckInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButt_CheckInActionPerformed
         new Checkin1().setVisible(true);
         setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jButt_CheckInActionPerformed
 
-    private void jButt_RoomServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButt_RoomServiceActionPerformed
+    private void jButt_CheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButt_CheckOutActionPerformed
         // TODO add your handling code here:
-        new roomservice().setVisible(true);
+        new Checkout0().setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_jButt_RoomServiceActionPerformed
-
-    private void jButt_RestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButt_RestaurantActionPerformed
-        // TODO add your handling code here:
-        new Restaurant().setVisible(true);
-        setVisible(false);
-    }//GEN-LAST:event_jButt_RestaurantActionPerformed
+    }//GEN-LAST:event_jButt_CheckOutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,21 +147,20 @@ public class MScreen extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+                new SScreen().setVisible(true);
             }
         });
     }
@@ -178,9 +168,8 @@ public class MScreen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButt_CheckIn;
     private javax.swing.JButton jButt_CheckOut;
-    private javax.swing.JButton jButt_Reserve;
-    private javax.swing.JButton jButt_Restaurant;
-    private javax.swing.JButton jButt_RoomService;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton jButt_Res;
+    private javax.swing.JButton jButt_RoomServ;
+    private javax.swing.JButton jButton_reserve;
     // End of variables declaration//GEN-END:variables
 }

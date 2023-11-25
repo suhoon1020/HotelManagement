@@ -288,7 +288,7 @@ public class date_time extends Checkout0 {
         checkout_data = new String[]{ms, hours, minutes};
        
         // 모든 항목이 입력되었는지 확인
-        if (years.isEmpty() || months.isEmpty() || days.isEmpty() || ms.isEmpty() || hours.isEmpty() || minutes.isEmpty()) {
+        if (!years.matches("\\d+") || !months.matches("\\d+") || !days.matches("\\d+") || !ms.matches("^[a-zA-Z][2]$") || !hours.matches("\\d+") || !minutes.matches("\\d+")) {
                 JOptionPane.showMessageDialog(null, "모든 항목을 입력해주세요.");  // 입력 안된 항목 있을 시 경고 메시지 출력
                 return; // 함수 종료
         } 

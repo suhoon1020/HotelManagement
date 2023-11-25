@@ -57,16 +57,16 @@ public class bil extends JFrame {
         jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        jTextRoomPrice = new javax.swing.JTextField();
+        jTextServicePrice = new javax.swing.JTextField();
+        jTextAddPrice = new javax.swing.JTextField();
+        jTextResPrice = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        jButt_Total = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -99,32 +99,32 @@ public class bil extends JFrame {
             }
         });
 
-        jTextField1.setEditable(false);
-        jTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTextRoomPrice.setEditable(false);
+        jTextRoomPrice.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextRoomPrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTextRoomPriceActionPerformed(evt);
             }
         });
 
-        jTextField3.setEditable(false);
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        jTextServicePrice.setEditable(false);
+        jTextServicePrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                jTextServicePriceActionPerformed(evt);
             }
         });
 
-        jTextField2.setEditable(false);
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        jTextAddPrice.setEditable(false);
+        jTextAddPrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                jTextAddPriceActionPerformed(evt);
             }
         });
 
-        jTextField4.setEditable(false);
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        jTextResPrice.setEditable(false);
+        jTextResPrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                jTextResPriceActionPerformed(evt);
             }
         });
 
@@ -163,10 +163,10 @@ public class bil extends JFrame {
             }
         });
 
-        jButton7.setText(".");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        jButt_Total.setText(".");
+        jButt_Total.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                jButt_TotalActionPerformed(evt);
             }
         });
 
@@ -211,27 +211,27 @@ public class bil extends JFrame {
                         .addGap(23, 23, 23)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextRoomPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextServicePrice, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextAddPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextResPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jButt_Total, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(69, 69, 69))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -250,28 +250,28 @@ public class bil extends JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextRoomPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextAddPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextServicePrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton6))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextResPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton8))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(jButton7))
+                    .addComponent(jButt_Total))
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -303,21 +303,21 @@ public class bil extends JFrame {
         setVisible(false);  // 현재 창 숨기기
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void jTextAddPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextAddPriceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_jTextAddPriceActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTextRoomPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextRoomPriceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jTextRoomPriceActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void jTextResPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextResPriceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_jTextResPriceActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void jTextServicePriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextServicePriceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_jTextServicePriceActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
@@ -327,7 +327,7 @@ public class bil extends JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         if (bbill != null) {
-            jTextField1.setText(bbill);  // 청구서에 예약 금액 표시
+            jTextRoomPrice.setText(bbill);  // 청구서에 예약 금액 표시
         }
         else {
             System.out.println("Error1");  // 예약 금액 정보가 없을 경우 오류 메시지 출력
@@ -343,7 +343,7 @@ public class bil extends JFrame {
         else if (abill == 1) {  // 추가 금액이 있는 경우 
             int number = Integer.parseInt(bbill);  // 예약금을 정수형으로 변환
             String line = Integer.toString(number / 2);  // 예약금 절반의 금액을 String으로 변환
-            jTextField2.setText(line);  // 추가금 청구서에 표시
+            jTextAddPrice.setText(line);  // 추가금 청구서에 표시
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -351,13 +351,13 @@ public class bil extends JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
         String filePath = (fname +"000.txt");  // 파일의 경로를 설정하세요.
-
+        File rbillFile = new File(filePath);
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filePath));
             String line = reader.readLine();
-
+            BufferedWriter bw = new BufferedWriter(new FileWriter(filePath));
         if (line != null) {
-            jTextField3.setText(line);  // 룸서비스 금액 청구서에 표시
+            jTextServicePrice.setText(line);  // 룸서비스 금액 청구서에 표시
         }
 
         reader.close();
@@ -372,13 +372,17 @@ public class bil extends JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
         String filePath = (fname +"r.bill.txt");  // 파일의 경로를 설정하세요.
-
+        File rbillFile = new File(filePath);
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filePath));
             String line = reader.readLine();
-
+            BufferedWriter bw = new BufferedWriter(new FileWriter(filePath));
+        if(!rbillFile.exists()){
+            bw.write("0");
+        }else{
         if (line != null) {
-            jTextField4.setText(line);  // 레스토랑 이용 금액 청구서에 표시
+            jTextResPrice.setText(line);  // 레스토랑 이용 금액 청구서에 표시
+        }
         }
 
         reader.close();
@@ -390,16 +394,51 @@ public class bil extends JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     // 총액 계산 버튼 클릭 이벤트 처리
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void jButt_TotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButt_TotalActionPerformed
         // TODO add your handling code here:
-        int bobill = Integer.parseInt(jTextField1.getText());  // 예약금을 정수형으로 변환
-        int adbill = Integer.parseInt(jTextField2.getText());  // 추가금을 정수형으로 변환
-        int robill = Integer.parseInt(jTextField3.getText());  // 룸서비스비를 정수형으로 변환
-        int rebill = Integer.parseInt(jTextField4.getText());  // 레스토랑비를 정수형으로 변환
+        String filePath = (fname + "bd.txt");  // 파일의 경로를 설정
+        String filePath1 = (fname + "s.bill.txt");  // 파일의 경로를 설정
+        String filePath2 = (fname + "r.bill.txt");  // 파일의 경로를 설정하세요
+        String filePath3 = (fname + "ad.txt");  // 파일의 경로를 설정
         
-        String sum = Integer.toString(bobill + adbill + robill + rebill);  // 4가지의 금액을 다 합한 값을 String으로 변환
-        jTextField5.setText(sum);  // 총액 청구서에 표시
-    }//GEN-LAST:event_jButton7ActionPerformed
+        int bobill=0;  // 예약금을 정수형으로 변환
+        int robill=0; // 룸서비스비를 정수형으로 변환
+        int adbill=0;  // 룸서비스비를 정수형으로 변환
+        int rebill=0; // 룸서비스비를 정수형으로 변환
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
+            String line = reader.readLine();
+            BufferedReader reader1 = new BufferedReader(new FileReader(filePath1));
+            String line1 = reader1.readLine();
+            BufferedReader reader2 = new BufferedReader(new FileReader(filePath2));
+            String line2 = reader2.readLine();
+            BufferedReader reader3 = new BufferedReader(new FileReader(filePath3));
+            String line3 = reader3.readLine();
+
+            if (line != null) {
+                bobill = Integer.parseInt(line);
+            }  // 예약금을 정수형으로 변환
+            if (line1 != null) {
+                robill = Integer.parseInt(line1);
+            } // 룸서비스비를 정수형으로 변환
+            if (line2 != null) {
+                adbill = Integer.parseInt(line1);
+            } // 룸서비스비를 정수형으로 변환
+            if (line3 != null) {
+                rebill = Integer.parseInt(line1);
+            } // 룸서비스비를 정수형으로 변환
+            reader.close();
+            
+            
+            int sum = bobill + robill + adbill + rebill;
+            String total = Integer.toString(sum);  // 4가지의 금액을 다 합한 값을 String으로 변환
+            jTextField5.setText(total);  // 총액 청구서에 표시
+            
+        } catch (IOException e) {
+            System.out.println("Error3");
+        }
+        
+    }//GEN-LAST:event_jButt_TotalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -438,13 +477,13 @@ public class bil extends JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButt_Total;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -453,10 +492,10 @@ public class bil extends JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextAddPrice;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextResPrice;
+    private javax.swing.JTextField jTextRoomPrice;
+    private javax.swing.JTextField jTextServicePrice;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,7 +4,7 @@
  */
 package Restaurant;
 
-import Reserve.MScreen;
+import Login.MScreen;
 import java.awt.PopupMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
