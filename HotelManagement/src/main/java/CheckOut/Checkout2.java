@@ -87,6 +87,7 @@ public class Checkout2 extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
     // 첫 번째 버튼 클릭시 date_time의 메인 메서드 호출 후 현재 창 숨김

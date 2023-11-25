@@ -131,6 +131,7 @@ public class feedback extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     // 콤보 박스 액션을 처리하는 메소드

@@ -278,6 +278,7 @@ public class bil extends JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     // 결제 버튼 클릭 이벤트 처리
