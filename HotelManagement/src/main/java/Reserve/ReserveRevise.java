@@ -419,8 +419,8 @@ public class ReserveRevise extends javax.swing.JFrame {
                 try {
                     uniqueNum = uniqueNumCheck;
                     FileInputStream fis = new FileInputStream(filePath);
-                    InputStreamReader isr = new InputStreamReader(fis, "EUC-KR");
-                    // InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
+                    //InputStreamReader isr = new InputStreamReader(fis, "EUC-KR");
+                    InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
                     BufferedReader br = new BufferedReader(isr);
 
                     String[] text = br.readLine().split("/");
