@@ -38,6 +38,7 @@ public class MScreen extends javax.swing.JFrame {
         jButt_CheckOut = new javax.swing.JButton();
         jButt_RoomService = new javax.swing.JButton();
         jButt_Restaurant = new javax.swing.JButton();
+        jButt_Restaurant1 = new javax.swing.JButton();
 
         jLabel2.setText("jLabel2");
 
@@ -78,6 +79,13 @@ public class MScreen extends javax.swing.JFrame {
             }
         });
 
+        jButt_Restaurant1.setText("점유율");
+        jButt_Restaurant1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButt_Restaurant1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -89,7 +97,8 @@ public class MScreen extends javax.swing.JFrame {
                     .addComponent(jButt_CheckOut)
                     .addComponent(jButt_CheckIn)
                     .addComponent(jButt_Reserve)
-                    .addComponent(jButt_Restaurant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButt_Restaurant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButt_Restaurant1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(254, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -101,11 +110,13 @@ public class MScreen extends javax.swing.JFrame {
                 .addComponent(jButt_CheckIn)
                 .addGap(26, 26, 26)
                 .addComponent(jButt_CheckOut)
-                .addGap(33, 33, 33)
+                .addGap(27, 27, 27)
                 .addComponent(jButt_RoomService)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jButt_Restaurant)
-                .addGap(35, 35, 35))
+                .addGap(18, 18, 18)
+                .addComponent(jButt_Restaurant1)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
@@ -140,6 +151,12 @@ public class MScreen extends javax.swing.JFrame {
         new Restaurant().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jButt_RestaurantActionPerformed
+
+    private void jButt_Restaurant1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButt_Restaurant1ActionPerformed
+        // TODO add your handling code here:
+        new Share().setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jButt_Restaurant1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,6 +199,7 @@ public class MScreen extends javax.swing.JFrame {
     private javax.swing.JButton jButt_CheckOut;
     private javax.swing.JButton jButt_Reserve;
     private javax.swing.JButton jButt_Restaurant;
+    private javax.swing.JButton jButt_Restaurant1;
     private javax.swing.JButton jButt_RoomService;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

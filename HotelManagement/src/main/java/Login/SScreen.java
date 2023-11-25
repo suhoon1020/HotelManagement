@@ -132,7 +132,7 @@ public class SScreen extends javax.swing.JFrame {
 
     private void jButt_CheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButt_CheckOutActionPerformed
         // TODO add your handling code here:
-        new Checkout0().setVisible(true);
+        new Checkout0().main(new String[0]);
         setVisible(false);
     }//GEN-LAST:event_jButt_CheckOutActionPerformed
 

@@ -4,7 +4,9 @@
  */
 package Roomservice;
 
+import Login.Login;
 import Login.MScreen;
+import Login.SScreen;
 import java.awt.PopupMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -502,8 +504,17 @@ public class RoomService extends javax.swing.JFrame {
 
     private void Butt_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Butt_BackActionPerformed
         // TODO add your handling code here:
-        new MScreen().setVisible(true);        
-        setVisible(false);
+        Login loginInstance = Login.getInstance();
+        boolean isMS = loginInstance.getMS();
+        //System.out.println(isMS); 테스트용 코드
+
+        if (isMS == true) {
+            new SScreen().setVisible(true);
+            setVisible(false);
+        } else {
+            new MScreen().setVisible(true);
+            setVisible(false);
+        }
     }//GEN-LAST:event_Butt_BackActionPerformed
 
     private void jText_billActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_billActionPerformed

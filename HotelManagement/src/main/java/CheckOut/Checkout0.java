@@ -4,7 +4,9 @@
  */
 package CheckOut;
 
+import Login.Login;
 import Login.MScreen;
+import Login.SScreen;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
@@ -36,7 +38,7 @@ public class Checkout0 extends JFrame {
         JFrame frame = new JFrame("체크아웃");  // 체크아웃 창을 생성
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  // 프레임이 닫힐 때 프로그램이 종료하도록 설정
         frame.setLayout(null);  // 레이아웃 매니저를 비활성화
-       // frame.setLayout(new FlowLayout());
+        // frame.setLayout(new FlowLayout());
         // 컴포넌트 생성
         JLabel Num = new JLabel("고유 번호 조회");
         JTextField searchField = new JTextField(20);
@@ -87,8 +89,16 @@ public class Checkout0 extends JFrame {
         prevButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // 버튼 클릭 시 호출할 프레임 보이기
-                new MScreen().setVisible(true);
-                frame.setVisible(false); // 현재 프레임 숨기기
+                Login loginInstance = Login.getInstance();
+                boolean isMS = loginInstance.getMS();
+                //System.out.println(isMS); 테스트용 코드
+                if (isMS == true) {
+                    new SScreen().setVisible(true);
+                    frame.setVisible(false);
+                } else {
+                    new MScreen().setVisible(true);
+                    frame.setVisible(false);
+                }
             }
         });
 

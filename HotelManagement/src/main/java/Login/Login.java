@@ -24,7 +24,7 @@ public class Login extends javax.swing.JFrame {
     //true = 스태프 false = 매니저
     private boolean isMS;
 
-    private static Login instance = new Login(); //싱글턴 패턴
+    private static Login instance = new Login();
 
     public Login() {
         initComponents();

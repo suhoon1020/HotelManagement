@@ -38,6 +38,7 @@
                   <Component id="jButt_CheckIn" min="-2" max="-2" attributes="0"/>
                   <Component id="jButt_Reserve" min="-2" max="-2" attributes="0"/>
                   <Component id="jButt_Restaurant" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jButt_Restaurant1" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="254" max="32767" attributes="0"/>
           </Group>
@@ -52,11 +53,13 @@
               <Component id="jButt_CheckIn" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Component id="jButt_CheckOut" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Component id="jButt_RoomService" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="40" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jButt_Restaurant" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jButt_Restaurant1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="22" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -100,6 +103,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButt_RestaurantActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButt_Restaurant1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc810;&#xc720;&#xc728;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButt_Restaurant1ActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

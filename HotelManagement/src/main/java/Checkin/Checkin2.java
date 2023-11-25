@@ -26,11 +26,10 @@ public class Checkin2 extends javax.swing.JFrame {
     public javax.swing.JTextField getTRoomnum() { //TRoomnum 필드를 반환하는 메서드
         return TRoomnum;
     }
-    
-        public javax.swing.JTextField getTdate() { //Tdate 필드를 반환하는 메서드
+
+    public javax.swing.JTextField getTdate() { //Tdate 필드를 반환하는 메서드
         return Tdate;
     }
-
 
     /**
      * Creates new form Checkin3
@@ -223,27 +222,31 @@ public class Checkin2 extends javax.swing.JFrame {
         String ms = (String) Comms.getSelectedItem();
         String hours = (String) Comhours.getSelectedItem();
         String minutes = (String) Commin.getSelectedItem();
+       
+
         //Comms, Comhours, Commin에서 선택된 항목을 문자열로 변환하여 ms, hours, minutes 변수에 저장
+       
+          
+            try {
+                FileWriter writer = new FileWriter(filePath, true); // 파일 끝에 내용을 추가하기 위해 true로 설정
+                writer.write("/");
+                writer.write(ms + "");
+                writer.write(hours + "시");
+                writer.write(minutes + "분");
 
-        try {
-            FileWriter writer = new FileWriter(filePath, true); // 파일 끝에 내용을 추가하기 위해 true로 설정
+                writer.write("/");
+                writer.write("CHECKIN");
+                writer.write("/");
+                writer.close();
 
-            writer.write("/");
-            writer.write(ms + "");
-            writer.write(hours + "시");
-            writer.write(minutes + "분");
-
-            writer.write("/");
-            writer.write("CHECKIN");
-            writer.write("/");
-            writer.close();
-
-            JOptionPane.showMessageDialog(null, "체크인 완료");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        new MScreen().setVisible(true);
-        setVisible(false);
+                JOptionPane.showMessageDialog(null, "체크인 완료");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            new MScreen().setVisible(true);
+            setVisible(false);
+        
+        
     }//GEN-LAST:event_jButtSaveActionPerformed
 
     private void jButtcloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtcloseActionPerformed
@@ -318,6 +321,5 @@ public class Checkin2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
-
 
 }
